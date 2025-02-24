@@ -61,7 +61,7 @@
     <!-- Hero Section -->
     <div class="relative flex items-center justify-center h-screen overflow-hidden">
         <div class="absolute inset-0">
-            <img src="assets/hero-image.webp" alt="DJ performing" class="object-cover w-full h-full ">
+            <img src="assets/hero-image.webp" alt="DJ Alin Krausz" class="object-cover w-full h-full ">
             <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/50"></div>
         </div>
         <div class="relative z-10 px-4 text-center">
@@ -79,7 +79,7 @@
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
                 <div>
-                    <img src="/api/placeholder/600/800" alt="DJ Portrait" class="rounded-lg shadow-2xl">
+                    <img src="assets/djalinkrausz.jpg" alt="DJ Alin Krausz" class="rounded-lg shadow-2xl">
                 </div>
                 <div>
                     <h2 class="mb-6 text-4xl font-bold">Despre mine</h2>
