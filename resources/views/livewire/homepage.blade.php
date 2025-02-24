@@ -5,8 +5,6 @@
         <div class="absolute inset-0 z-0">
             <video class="object-cover w-full h-full" autoplay loop muted playsinline>
                 <source src="{{ asset('assets/video-bg.mp4') }}" type="video/mp4">
-                <!-- Adaugă un fallback image pentru browsere care nu suportă video background -->
-                <img src="{{ asset('images/dj-background.jpg') }}" alt="DJ Alin Krausz" class="object-cover w-full h-full">
             </video>
             <!-- Overlay pentru contrast text -->
             <div class="absolute inset-0 bg-black bg-opacity-60"></div>
@@ -22,12 +20,12 @@
             </p>
             <div class="flex flex-col gap-4 sm:flex-row">
                 <a href="#booking"
-                    class="px-8 py-3 font-bold text-white transition-all duration-300 transform bg-indigo-600 rounded-full hover:bg-indigo-700 hover:scale-105">
-                    Rezervă acum
+                    class="px-8 py-3 font-bold text-center text-white transition-all duration-300 transform bg-indigo-600 rounded-full hover:bg-indigo-700 hover:scale-105">
+                    Booking →
                 </a>
                 <a href="#music"
-                    class="px-8 py-3 font-bold text-white transition-all duration-300 transform bg-transparent border-2 border-white rounded-full hover:border-indigo-500 hover:scale-105">
-                    Ascultă muzica
+                    class="px-8 py-3 font-bold text-center text-white transition-all duration-300 transform bg-transparent border-2 border-white rounded-full hover:border-indigo-500 hover:scale-105">
+                    Galerie Media
                 </a>
             </div>
         </div>
@@ -46,9 +44,14 @@
     <section id="about" class="py-20 text-white bg-gradient-to-b from-black to-gray-900">
         <div class="container px-8 mx-auto">
             <div class="flex flex-col items-center gap-12 lg:flex-row">
-                <div class="lg:w-1/2">
-                    <img src="{{ asset('images/dj-profile.jpg') }}" alt="DJ Alin Krausz"
-                        class="w-full h-auto transition-transform duration-500 transform shadow-2xl rounded-xl hover:scale-105">
+                <div class="relative lg:w-1/2 group">
+                    <div
+                        class="absolute transition-all duration-300 -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl opacity-30 blur-md group-hover:opacity-70">
+                    </div>
+                    <div class="relative">
+                        <img src="{{ asset('assets/djalinkrausz.jpg') }}" alt="DJ Alin Krausz"
+                            class="w-full h-auto rounded-xl shadow-2xl transition-all duration-500 transform relative z-10 group-hover:scale-[1.02]">
+                    </div>
                 </div>
                 <div class="lg:w-1/2">
                     <h2 class="mb-6 text-3xl font-bold text-indigo-400 md:text-4xl">Despre Mine</h2>
@@ -209,8 +212,7 @@
                         găsit. Recomand cu încredere!"
                     </p>
                     <div class="flex items-center">
-                        <img src="{{ asset('images/testimonial1.jpg') }}" alt="Client"
-                            class="w-12 h-12 mr-4 rounded-full">
+
                         <div>
                             <h4 class="font-bold">Andreea & Mihai</h4>
                             <p class="text-sm text-gray-400">Nuntă, București</p>
@@ -261,8 +263,7 @@
                         căutam. Cu siguranță vom lucra din nou împreună!"
                     </p>
                     <div class="flex items-center">
-                        <img src="{{ asset('images/testimonial2.jpg') }}" alt="Client"
-                            class="w-12 h-12 mr-4 rounded-full">
+
                         <div>
                             <h4 class="font-bold">Alexandru Popescu</h4>
                             <p class="text-sm text-gray-400">Event Manager, TechCorp</p>
@@ -313,8 +314,7 @@
                         Colaborarea cu el este mereu o plăcere!"
                     </p>
                     <div class="flex items-center">
-                        <img src="{{ asset('images/testimonial3.jpg') }}" alt="Client"
-                            class="w-12 h-12 mr-4 rounded-full">
+
                         <div>
                             <h4 class="font-bold">Elena Ionescu</h4>
                             <p class="text-sm text-gray-400">Manager, Pulse Club</p>
