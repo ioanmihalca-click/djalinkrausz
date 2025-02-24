@@ -24,10 +24,13 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo/Brand -->
                 <div class="flex items-center flex-shrink-0">
-                    <a href="#" class="flex items-center">
-                        <span
-                            class="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">DJ
-                            ALIN KRAUSZ</span>
+                    <a href="/" class="flex items-center transition-all duration-300">
+                        <!-- Logo ca text -->
+                        <span class="font-sans text-3xl font-bold">
+                            <span class="text-indigo-500 hover:text-indigo-400">dj</span>
+                            <span class="font-medium text-gray-400 transition-colors duration-300 hover:text-white">
+                                alin krausz</span>
+                        </span>
                     </a>
                 </div>
 

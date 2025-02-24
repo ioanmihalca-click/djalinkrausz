@@ -46,7 +46,7 @@
             <div class="flex flex-col items-center gap-12 lg:flex-row">
                 <div class="relative lg:w-1/2 group">
                     <div
-                        class="absolute transition-all duration-300 -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl opacity-30 blur-md group-hover:opacity-70">
+                        class="absolute transition-all duration-300 -inset-1 bg-gradient-to-r from-green-500 via-indigo-500 to-purple-600 rounded-xl opacity-35 blur-md group-hover:opacity-70">
                     </div>
                     <div class="relative">
                         <img src="{{ asset('assets/djalinkrausz.jpg') }}" alt="DJ Alin Krausz"
