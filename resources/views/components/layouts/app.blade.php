@@ -10,7 +10,11 @@
     <title>{{ $title ?? 'DJ Alin Krausz' }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/favicon/favicon-96x96.png') }}" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicon/favicon.svg') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/favicon/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicon/apple-touch-icon.png') }}">
+    <meta name="apple-mobile-web-app-title" content="DjAlinKrausz">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="DJ Alin Krausz">
@@ -53,15 +57,15 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="flex items-center ml-10 space-x-8">
-                        <a href="#"
+                        <a href="/" wire:navigate
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Acasă
                         </a>
-                        <a href="#about"
+                        <a href="{{ url('/despre') }}" wire:navigate
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Despre
                         </a>
-                        <a href="#services"
+                        <a href="/#services"
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Servicii
                         </a>
@@ -69,11 +73,11 @@
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Galerie
                         </a>
-                        <a href="#testimonials"
+                        <a href="/#testimonials"
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Testimoniale
                         </a>
-                        <a href="#contact"
+                        <a href="/#contact"
                             class="px-6 py-2.5 text-sm font-medium text-white transition-all duration-500 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 transform hover:-translate-y-0.5">
                             Contact
                         </a>
@@ -112,15 +116,15 @@
             x-transition:leave-end="opacity-0 transform -translate-y-2"
             class="border-t border-gray-800 md:hidden bg-black/95 backdrop-blur-md" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" @click="mobileMenuOpen = false"
+                <a href="/" @click="mobileMenuOpen = false" wire:navigate
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Acasă
                 </a>
-                <a href="#about" @click="mobileMenuOpen = false"
+                <a href="#about" @click="mobileMenuOpen = false" wire:navigate
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Despre
                 </a>
-                <a href="#services" @click="mobileMenuOpen = false"
+                <a href="/#services" @click="mobileMenuOpen = false"
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Servicii
                 </a>
@@ -128,11 +132,11 @@
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Galerie
                 </a>
-                <a href="#testimonials" @click="mobileMenuOpen = false"
+                <a href="/#testimonials" @click="mobileMenuOpen = false"
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Testimoniale
                 </a>
-                <a href="#contact" @click="mobileMenuOpen = false"
+                <a href="/#contact" @click="mobileMenuOpen = false"
                     class="block px-4 py-3 mt-2 mb-2 text-base font-medium text-center text-white transition-all duration-300 rounded-md bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500">
                     Contact
                 </a>
