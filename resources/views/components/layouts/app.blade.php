@@ -73,7 +73,7 @@
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Testimoniale
                         </a> --}}
-                        <a href="/#contact"
+                        <a href="{{ url('/contact') }}" wire:navigate
                             class="px-6 py-2.5 text-sm font-medium text-white transition-all duration-500 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 transform hover:-translate-y-0.5">
                             Contact
                         </a>
@@ -116,7 +116,7 @@
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Acasă
                 </a>
-                <a href="#about" @click="mobileMenuOpen = false" wire:navigate
+                <a href="{{ url('/despre') }}" @click="mobileMenuOpen = false" wire:navigate
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Despre
                 </a>
@@ -128,7 +128,7 @@
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Testimoniale
                 </a> --}}
-                <a href="/#contact" @click="mobileMenuOpen = false"
+                <a href="{{ url('/contact') }}" @click="mobileMenuOpen = false" wire:navigate
                     class="block px-4 py-3 mt-2 mb-2 text-base font-medium text-center text-white transition-all duration-300 rounded-md bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500">
                     Contact
                 </a>
