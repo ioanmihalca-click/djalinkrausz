@@ -359,38 +359,6 @@
         </div>
     </section>
 
-    <!-- Booking Section with Calendar -->
-    <section class="py-24 text-white bg-gradient-to-b from-black to-indigo-900">
-        <div class="container px-8 mx-auto max-w-7xl">
-            <div class="grid items-center grid-cols-1 gap-16 lg:grid-cols-2">
-                <div>
-                    <div class="relative z-10">
-                        <h2 class="text-4xl font-extrabold md:text-5xl">
-                            Pregătit pentru un <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">eveniment
-                                de neuitat?</span>
-                        </h2>
-                        <div class="w-32 h-1 mt-4 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500"></div>
-                        <p class="mt-6 text-lg text-gray-300">
-                            Verifică disponibilitatea pentru data evenimentului tău și rezervă din timp pentru a
-                            beneficia de cele mai bune oferte.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative">
-                    <div
-                        class="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl opacity-70 blur-lg">
-                    </div>
-                    <div
-                        class="relative p-6 border shadow-lg bg-gray-800/80 border-gray-700/50 rounded-xl backdrop-blur-sm">
-                        <!-- Calendar Component -->
-                        @livewire('availability-calendar')
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 </div>
