@@ -65,7 +65,7 @@
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Despre
                         </a>
-                        <a href="#gallery"
+                        <a href="{{ url('/galerie') }}" wire:navigate
                             class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 border-b-2 border-transparent hover:text-indigo-400 hover:border-indigo-400">
                             Galerie
                         </a>
@@ -120,14 +120,10 @@
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Despre
                 </a>
-                <a href="#gallery" @click="mobileMenuOpen = false"
+                <a href="{{ url('/galerie') }}" @click="mobileMenuOpen = false" wire:navigate
                     class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
                     Galerie
                 </a>
-                {{-- <a href="/#testimonials" @click="mobileMenuOpen = false"
-                    class="block px-3 py-3 text-base font-medium text-white transition-colors rounded-md hover:text-indigo-400 hover:bg-gray-800/50">
-                    Testimoniale
-                </a> --}}
                 <a href="{{ url('/contact') }}" @click="mobileMenuOpen = false" wire:navigate
                     class="block px-4 py-3 mt-2 mb-2 text-base font-medium text-center text-white transition-all duration-300 rounded-md bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500">
                     Contact
