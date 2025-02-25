@@ -37,7 +37,7 @@
                 </span>
             </p>
             <div class="flex flex-col gap-4 sm:flex-row">
-                <a href="#booking"
+                <a href="{{ url('/contact') }}" wire:navigate
                     class="relative px-8 py-4 overflow-hidden font-bold text-center text-white transition-all duration-300 rounded-full group hover:scale-105">
                     <span
                         class="absolute inset-0 w-full h-full transition-all duration-300 bg-gradient-to-br from-indigo-600 via-indigo-500 to-purple-700"></span>
@@ -52,7 +52,7 @@
                         </svg>
                     </span>
                 </a>
-                <a href="#gallery"
+                <a href="{{ url('/galerie') }}" wire:navigate
                     class="px-8 py-4 font-bold text-center text-white transition-all duration-300 bg-transparent border-2 rounded-full border-white/70 hover:bg-white/10 hover:border-indigo-400 hover:text-indigo-300 hover:scale-105">
                     <span class="flex items-center justify-center">
                         Galerie Media
