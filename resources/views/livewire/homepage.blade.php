@@ -359,8 +359,8 @@
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="py-24 text-white bg-gradient-to-b from-black to-indigo-900">
+    <!-- Booking Section with Calendar -->
+    <section class="py-24 text-white bg-gradient-to-b from-black to-indigo-900">
         <div class="container px-8 mx-auto max-w-7xl">
             <div class="grid items-center grid-cols-1 gap-16 lg:grid-cols-2">
                 <div>
@@ -375,17 +375,6 @@
                             Verifică disponibilitatea pentru data evenimentului tău și rezervă din timp pentru a
                             beneficia de cele mai bune oferte.
                         </p>
-                        <div class="mt-8">
-                            <a href="#contact"
-                                class="inline-flex items-center px-8 py-4 text-base font-medium text-white transition-all duration-300 transform rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/30">
-                                Rezervă acum
-                                <svg class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -395,130 +384,8 @@
                     </div>
                     <div
                         class="relative p-6 border shadow-lg bg-gray-800/80 border-gray-700/50 rounded-xl backdrop-blur-sm">
-                        <div class="grid grid-cols-3 gap-4">
-                            <!-- Months -->
-                            <div class="grid grid-cols-3 col-span-3 gap-4 mb-4">
-                                <div
-                                    class="py-2 font-semibold text-center text-white rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600">
-                                    <span class="text-xs opacity-75">IAN</span>
-                                    <div class="text-2xl font-bold">2026</div>
-                                </div>
-                                <div class="py-2 font-semibold text-center text-white bg-gray-700 rounded-lg">
-                                    <span class="text-xs opacity-75">FEB</span>
-                                    <div class="text-2xl font-bold">2026</div>
-                                </div>
-                                <div class="py-2 font-semibold text-center text-white bg-gray-700 rounded-lg">
-                                    <span class="text-xs opacity-75">MAR</span>
-                                    <div class="text-2xl font-bold">2026</div>
-                                </div>
-                            </div>
-
-                            <!-- Calendar Days - Quick Preview -->
-                            <div class="p-4 rounded-lg bg-gray-700/70">
-                                <div class="mb-2 text-xs text-center text-gray-400">Lu Ma Mi Jo Vi Sâ Du</div>
-                                <div class="grid grid-cols-7 gap-2 text-xs text-center">
-                                    <span class="opacity-50">26</span>
-                                    <span class="opacity-50">27</span>
-                                    <span class="opacity-50">28</span>
-                                    <span class="opacity-50">29</span>
-                                    <span class="opacity-50">30</span>
-                                    <span class="opacity-50">31</span>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                    <span>5</span>
-                                    <span>6</span>
-                                    <span>7</span>
-                                    <span>8</span>
-                                    <span>9</span>
-                                    <span>10</span>
-                                    <span
-                                        class="inline-flex items-center justify-center w-5 h-5 bg-indigo-600 rounded-full">11</span>
-                                    <span
-                                        class="inline-flex items-center justify-center w-5 h-5 bg-indigo-600 rounded-full">12</span>
-                                    <span>13</span>
-                                    <span>14</span>
-                                    <span>15</span>
-                                </div>
-                            </div>
-
-                            <div class="p-4 rounded-lg bg-gray-700/70">
-                                <div class="mb-2 text-xs text-center text-gray-400">Lu Ma Mi Jo Vi Sâ Du</div>
-                                <div class="grid grid-cols-7 gap-2 text-xs text-center">
-                                    <span class="opacity-50">30</span>
-                                    <span class="opacity-50">31</span>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                    <span>5</span>
-                                    <span>6</span>
-                                    <span>7</span>
-                                    <span>8</span>
-                                    <span
-                                        class="inline-flex items-center justify-center w-5 h-5 bg-red-600 rounded-full">9</span>
-                                    <span>10</span>
-                                    <span>11</span>
-                                    <span>12</span>
-                                    <span>13</span>
-                                    <span>14</span>
-                                    <span>15</span>
-                                    <span>16</span>
-                                    <span
-                                        class="inline-flex items-center justify-center w-5 h-5 bg-indigo-600 rounded-full">17</span>
-                                    <span>18</span>
-                                    <span>19</span>
-                                </div>
-                            </div>
-
-                            <div class="p-4 rounded-lg bg-gray-700/70">
-                                <div class="mb-2 text-xs text-center text-gray-400">Lu Ma Mi Jo Vi Sâ Du</div>
-                                <div class="grid grid-cols-7 gap-2 text-xs text-center">
-                                    <span class="opacity-50">27</span>
-                                    <span class="opacity-50">28</span>
-                                    <span>1</span>
-                                    <span>2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                    <span>5</span>
-                                    <span>6</span>
-                                    <span>7</span>
-                                    <span>8</span>
-                                    <span>9</span>
-                                    <span>10</span>
-                                    <span>11</span>
-                                    <span>12</span>
-                                    <span>13</span>
-                                    <span>14</span>
-                                    <span>15</span>
-                                    <span>16</span>
-                                    <span>17</span>
-                                    <span>18</span>
-                                    <span>19</span>
-                                </div>
-                            </div>
-
-                            <!-- Legend & Actions -->
-                            <div
-                                class="flex flex-col items-center justify-between col-span-3 mt-4 space-y-4 md:flex-row md:space-y-0">
-                                <div class="flex flex-wrap gap-4">
-                                    <div class="flex items-center">
-                                        <div class="w-4 h-4 mr-2 bg-indigo-600 rounded-full"></div>
-                                        <span class="text-sm">Disponibil</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <div class="w-4 h-4 mr-2 bg-red-600 rounded-full"></div>
-                                        <span class="text-sm">Rezervat</span>
-                                    </div>
-                                </div>
-
-                                <a href="#contact"
-                                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white transition-all duration-300 bg-indigo-600 rounded-lg hover:bg-indigo-700">
-                                    Vezi toată agenda
-                                </a>
-                            </div>
-                        </div>
+                        <!-- Calendar Component -->
+                        @livewire('availability-calendar')
                     </div>
                 </div>
             </div>
