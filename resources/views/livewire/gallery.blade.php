@@ -111,7 +111,7 @@
             </div>
 
             <div class="flex justify-center mt-16">
-                <a href="#contact"
+                <a href="{{ url('/contact') }}" wire:navigate
                     class="px-8 py-4 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-105">
                     Contactează-mă pentru evenimentul tău
                 </a>
