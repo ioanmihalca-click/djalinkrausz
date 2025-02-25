@@ -359,6 +359,96 @@
         </div>
     </section>
 
+    <!-- Calendar Events Section -->
+    <section id="events" class="py-24 text-white bg-gradient-to-b from-gray-900 to-black">
+        <div class="container px-8 mx-auto max-w-7xl">
+            <div class="mb-16 text-center">
+                <h2
+                    class="text-4xl font-extrabold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+                    Calendar Evenimente
+                </h2>
+                <div class="w-24 h-1 mx-auto mt-4 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500"></div>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-300">Urmărește programul și apariții DJ-ului Alin Krausz</p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                @forelse($events as $event)
+                    <!-- Event Card -->
+                    <div class="relative h-full group">
+                        <div
+                            class="absolute inset-0 transition-all duration-300 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-xl blur-sm opacity-70 group-hover:opacity-100">
+                        </div>
+                        <div
+                            class="relative flex flex-col h-full transition-all duration-300 bg-gray-800/50 border border-gray-700/50 shadow-lg rounded-xl backdrop-blur-sm group-hover:translate-y-[-5px]">
+                            <!-- Card Header with Date -->
+                            <div class="p-6 text-center bg-gradient-to-r from-indigo-500/30 to-purple-500/30">
+                                <div class="text-sm font-medium text-gray-300">{{ $event->date->format('l') }}</div>
+                                <div class="flex items-center justify-center gap-4">
+                                    <span class="text-3xl font-bold text-white">{{ $event->date->format('d') }}</span>
+                                    <span
+                                        class="text-xl font-medium text-indigo-300">{{ $event->date->format('M, Y') }}</span>
+                                </div>
+                                <div class="mt-2 text-sm font-medium text-gray-300">
+                                    {{ date('H:i', strtotime($event->time)) }}</div>
+                            </div>
+
+                            <!-- Card Body -->
+                            <div class="flex flex-col flex-grow p-6">
+                                <h3 class="mb-3 text-2xl font-bold text-white">{{ $event->title }}</h3>
+                                <div class="flex items-start mb-3 text-gray-300">
+                                    <svg class="w-5 h-5 mr-2 text-indigo-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    <span>{{ $event->location }}</span>
+                                </div>
+
+                                <p class="mb-6 text-gray-300">{{ $event->description }}</p>
+
+                                <!-- Spacer to push button to bottom -->
+                                <div class="flex-grow"></div>
+
+                                <!-- Action Button -->
+                                <a href="{{ url('/contact') }}" wire:navigate
+                                    class="flex items-center justify-center w-full px-4 py-3 font-medium text-center text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500">
+                                    <span>Rezervă Loc</span>
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <!-- No events message -->
+                    <div class="py-10 text-center col-span-full">
+                        <div
+                            class="flex flex-col items-center p-8 border bg-gray-800/50 border-gray-700/50 rounded-xl">
+                            <svg class="w-16 h-16 mb-4 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <p class="text-xl text-gray-400">Nu există evenimente programate în acest moment.</p>
+                            <p class="mt-2 text-gray-500">Verifică mai târziu pentru actualizări sau contactează-ne
+                                direct.</p>
+                            <a href="{{ url('/contact') }}" wire:navigate
+                                class="px-6 py-3 mt-6 font-medium text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500">
+                                Contactează-ne
+                            </a>
+                        </div>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </section>
 
 
 </div>

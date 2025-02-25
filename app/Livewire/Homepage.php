@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Event;
 use App\Models\Testimonial;
 use Livewire\Component;
 
@@ -13,9 +14,13 @@ class Homepage extends Component
         $testimonials = Testimonial::where('active', true)
             ->orderBy('order', 'asc')
             ->get();
+            
+        // Obține evenimentele viitoare active
+        $events = Event::getUpcomingEvents();
         
         return view('livewire.homepage', [
-            'testimonials' => $testimonials
+            'testimonials' => $testimonials,
+            'events' => $events
         ]);
     }
 }
