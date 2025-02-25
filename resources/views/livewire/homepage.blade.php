@@ -23,6 +23,9 @@
                             class="absolute rounded-lg -inset-1 -z-10 opacity-30 bg-gradient-to-r from-indigo-600 to-purple-600 blur-xl animate-pulse"></span>
                     </span>
                 </h1>
+                {{-- <h1 class="mb-4 text-5xl font-bold tracking-wider text-center md:text-7xl animate-pulse">
+                    DJ ALIN <span class="text-indigo-500">KRAUSZ</span>
+                </h1> --}}
             </div>
 
             <p class="max-w-2xl mb-10 text-xl font-light text-center text-gray-200 md:text-2xl">
@@ -66,7 +69,7 @@
         <!-- Scroll Down Indicator -->
         <div class="absolute z-10 transform -translate-x-1/2 bottom-10 left-1/2">
             <a href="#about" class="flex flex-col items-center transition-colors text-white/80 hover:text-white">
-                <span class="mb-2 text-sm">Descoperă</span>
+
                 <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -199,7 +202,7 @@
                     Servicii Profesionale
                 </h2>
                 <div class="w-24 h-1 mx-auto mt-4 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500"></div>
-                <p class="max-w-2xl mx-auto mt-4 text-gray-300">Oferim servicii complete de DJ pentru orice tip de
+                <p class="max-w-2xl mx-auto mt-4 text-gray-300">Ofer servicii complete de DJ pentru orice tip de
                     eveniment</p>
             </div>
 
@@ -207,7 +210,7 @@
                 <!-- Service Card 1 -->
                 <div class="relative group">
                     <div
-                        class="absolute inset-0 transition duration-500 opacity-75 bg-gradient-to-r from-purple-600/20 to-indigo-600/20 rounded-xl blur group-hover:opacity-100">
+                        class="absolute transition duration-500 opacity-75 bg-gradient-to-r from-purple-600/20 to-indigo-600/20 rounded-xl blur group-hover:opacity-100">
                     </div>
                     <div
                         class="relative p-8 transition-all duration-300 bg-gray-800/50 border border-gray-700/50 shadow-lg rounded-xl backdrop-blur-sm group-hover:translate-y-[-5px]">
@@ -222,18 +225,9 @@
                         </div>
                         <h3 class="mb-3 text-2xl font-bold">Evenimente Private</h3>
                         <p class="mb-4 text-gray-300">
-                            Personalizăm experiența muzicală perfect pentru nunți elegante, botezuri sau aniversări
-                            speciale. Creăm amintiri de neuitat!
+                            Personalizez experiența muzicală perfect pentru nunți elegante, botezuri sau aniversări
+                            speciale. Creez amintiri de neuitat!
                         </p>
-                        <a href="#"
-                            class="inline-flex items-center text-indigo-400 transition-colors hover:text-indigo-300">
-                            Află mai multe
-                            <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
                     </div>
                 </div>
 
@@ -255,18 +249,11 @@
                         </div>
                         <h3 class="mb-3 text-2xl font-bold">Evenimente Corporative</h3>
                         <p class="mb-4 text-gray-300">
-                            Creăm atmosfera perfectă pentru evenimente corporate, lansări de produse și gale cu mixuri
+                            Creez atmosfera perfectă pentru evenimente corporate, lansări de produse și gale cu
+                            mixuri
                             profesionale și echipament premium.
                         </p>
-                        <a href="#"
-                            class="inline-flex items-center text-indigo-400 transition-colors hover:text-indigo-300">
-                            Află mai multe
-                            <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
+
                     </div>
                 </div>
 
@@ -288,18 +275,11 @@
                         </div>
                         <h3 class="mb-3 text-2xl font-bold">Cluburi & Festivaluri</h3>
                         <p class="mb-4 text-gray-300">
-                            Cu un repertoriu vast și experiență în cele mai bune locații, aducem energia perfectă pentru
+                            Cu un repertoriu vast și experiență în cele mai bune locații, aduc energia perfectă
+                            pentru
                             cluburi și evenimente în aer liber.
                         </p>
-                        <a href="#"
-                            class="inline-flex items-center text-indigo-400 transition-colors hover:text-indigo-300">
-                            Află mai multe
-                            <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
+
                     </div>
                 </div>
             </div>
