@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\GalleryItem;
 use Livewire\Component;
 
 class Gallery extends Component
@@ -15,6 +16,19 @@ class Gallery extends Component
 
     public function render()
     {
-        return view('livewire.gallery');
+        $photos = GalleryItem::where('type', 'photo')
+            ->where('active', true)
+            ->orderBy('order')
+            ->get();
+            
+        $videos = GalleryItem::where('type', 'video')
+            ->where('active', true)
+            ->orderBy('order')
+            ->get();
+        
+        return view('livewire.gallery', [
+            'photos' => $photos,
+            'videos' => $videos
+        ]);
     }
 }

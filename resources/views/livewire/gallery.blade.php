@@ -44,91 +44,34 @@
             <!-- Photo Gallery -->
             <div x-data="{ selectedImage: null }" x-cloak class="{{ $activeTab === 'photo' ? 'block' : 'hidden' }}">
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <!-- Photo Item 1 -->
-                    <div class="relative overflow-hidden group rounded-xl aspect-square">
-                        <img src="{{ asset('assets/gallery/photo-1.jpg') }}" alt="DJ Alin Krausz la un eveniment"
-                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                            <h3 class="text-xl font-bold">Nuntă la Castelul Bánffy</h3>
-                            <p class="text-sm text-gray-300">O seară magică alături de invitați speciali</p>
+                    @forelse ($photos as $photo)
+                        <div class="relative overflow-hidden group rounded-xl aspect-square">
+                            <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}"
+                                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
+                                <h3 class="text-xl font-bold">{{ $photo->title }}</h3>
+                                @if ($photo->description)
+                                    <p class="text-sm text-gray-300">{{ $photo->description }}</p>
+                                @endif
+                            </div>
+                            <button @click="selectedImage = '{{ $photo->image_url }}'"
+                                class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
                         </div>
-                        <button @click="selectedImage = 'assets/gallery/photo-1.jpg'"
-                            class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
-                    </div>
-
-                    <!-- Photo Item 2 -->
-                    <div class="relative overflow-hidden group rounded-xl aspect-square">
-                        <img src="{{ asset('assets/gallery/photo-2.jpg') }}" alt="DJ Alin Krausz în club"
-                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                            <h3 class="text-xl font-bold">Club Midi - Night Session</h3>
-                            <p class="text-sm text-gray-300">Electronica vibes până în zori</p>
+                    @empty
+                        <div class="py-10 text-center col-span-full">
+                            <p class="text-xl text-gray-400">Nu există fotografii disponibile în acest moment.</p>
                         </div>
-                        <button @click="selectedImage = 'assets/gallery/photo-2.jpg'"
-                            class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
-                    </div>
-
-                    <!-- Photo Item 3 -->
-                    <div class="relative overflow-hidden group rounded-xl aspect-square">
-                        <img src="{{ asset('assets/gallery/photo-3.jpg') }}" alt="DJ Alin Krausz la festival"
-                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                            <h3 class="text-xl font-bold">Festival de Vară</h3>
-                            <p class="text-sm text-gray-300">O experiență muzicală sub cerul liber</p>
-                        </div>
-                        <button @click="selectedImage = 'assets/gallery/photo-3.jpg'"
-                            class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
-                    </div>
-
-                    <!-- Photo Item 4 -->
-                    <div class="relative overflow-hidden group rounded-xl aspect-square">
-                        <img src="{{ asset('assets/gallery/photo-4.jpg') }}" alt="DJ Alin Krausz la eveniment corporate"
-                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                            <h3 class="text-xl font-bold">Corporate Event</h3>
-                            <p class="text-sm text-gray-300">Lansare de produs cu atmosferă premium</p>
-                        </div>
-                        <button @click="selectedImage = 'assets/gallery/photo-4.jpg'"
-                            class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
-                    </div>
-
-                    <!-- Photo Item 5 -->
-                    <div class="relative overflow-hidden group rounded-xl aspect-square">
-                        <img src="{{ asset('assets/gallery/photo-5.jpg') }}" alt="DJ Alin Krausz la petrecere privată"
-                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                            <h3 class="text-xl font-bold">Petrecere Privată</h3>
-                            <p class="text-sm text-gray-300">Atmosferă perfectă pentru o aniversare specială</p>
-                        </div>
-                        <button @click="selectedImage = 'assets/gallery/photo-5.jpg'"
-                            class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
-                    </div>
-
-                    <!-- Photo Item 6 -->
-                    <div class="relative overflow-hidden group rounded-xl aspect-square">
-                        <img src="{{ asset('assets/gallery/photo-6.jpg') }}"
-                            alt="Moment de la o nuntă cu DJ Alin Krausz"
-                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                            <h3 class="text-xl font-bold">Nuntă de Vis</h3>
-                            <p class="text-sm text-gray-300">Momente de neuitat pentru miri și invitați</p>
-                        </div>
-                        <button @click="selectedImage = 'assets/gallery/photo-6.jpg'"
-                            class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
-                    </div>
+                    @endforelse
                 </div>
 
                 <!-- Lightbox for image preview -->
                 <div x-show="selectedImage" @click.away="selectedImage = null"
                     @keydown.escape.window="selectedImage = null"
                     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-                    x-transition>
+                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                     <button @click="selectedImage = null"
                         class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -137,71 +80,33 @@
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-                    <img :src="'{{ asset('') }}' + selectedImage" class="max-w-full max-h-[80vh] object-contain"
-                        alt="Imagine mărită">
+                    <img :src="selectedImage" class="max-w-full max-h-[80vh] object-contain" alt="Imagine mărită">
                 </div>
             </div>
 
             <!-- Video Gallery -->
             <div class="{{ $activeTab === 'video' ? 'block' : 'hidden' }}">
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    <!-- Video Item 1 -->
-                    <div class="overflow-hidden rounded-xl bg-gray-800/30 backdrop-blur-sm">
-                        <div class="relative aspect-video">
-                            <iframe class="absolute inset-0 w-full h-full rounded-t-xl"
-                                src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+                    @forelse ($videos as $video)
+                        <div class="overflow-hidden rounded-xl bg-gray-800/30 backdrop-blur-sm">
+                            <div class="relative aspect-video">
+                                <iframe class="absolute inset-0 w-full h-full rounded-t-xl"
+                                    src="{{ $video->youtube_url }}" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold">{{ $video->title }}</h3>
+                                @if ($video->description)
+                                    <p class="mt-2 text-sm text-gray-300">{{ $video->description }}</p>
+                                @endif
+                            </div>
                         </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold">Highlights Nuntă 2023</h3>
-                            <p class="mt-2 text-sm text-gray-300">Cele mai frumoase momente de la evenimentele de nuntă
-                            </p>
+                    @empty
+                        <div class="py-10 text-center col-span-full">
+                            <p class="text-xl text-gray-400">Nu există videoclipuri disponibile în acest moment.</p>
                         </div>
-                    </div>
-
-                    <!-- Video Item 2 -->
-                    <div class="overflow-hidden rounded-xl bg-gray-800/30 backdrop-blur-sm">
-                        <div class="relative aspect-video">
-                            <iframe class="absolute inset-0 w-full h-full rounded-t-xl"
-                                src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold">Club Mix Session</h3>
-                            <p class="mt-2 text-sm text-gray-300">Set live din club cu energia la maxim</p>
-                        </div>
-                    </div>
-
-                    <!-- Video Item 3 -->
-                    <div class="overflow-hidden rounded-xl bg-gray-800/30 backdrop-blur-sm">
-                        <div class="relative aspect-video">
-                            <iframe class="absolute inset-0 w-full h-full rounded-t-xl"
-                                src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold">Festival Summer Vibes</h3>
-                            <p class="mt-2 text-sm text-gray-300">Momente memorabile de la festivalul de vară</p>
-                        </div>
-                    </div>
-
-                    <!-- Video Item 4 -->
-                    <div class="overflow-hidden rounded-xl bg-gray-800/30 backdrop-blur-sm">
-                        <div class="relative aspect-video">
-                            <iframe class="absolute inset-0 w-full h-full rounded-t-xl"
-                                src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold">Corporate Party Mix</h3>
-                            <p class="mt-2 text-sm text-gray-300">Atmosfera perfectă pentru un eveniment corporate de
-                                succes</p>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
 
