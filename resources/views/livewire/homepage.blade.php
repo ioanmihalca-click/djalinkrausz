@@ -23,9 +23,6 @@
                             class="absolute rounded-lg -inset-1 -z-10 opacity-30 bg-gradient-to-r from-indigo-600 to-purple-600 blur-xl animate-pulse"></span>
                     </span>
                 </h1>
-                {{-- <h1 class="mb-4 text-5xl font-bold tracking-wider text-center md:text-7xl animate-pulse">
-                    DJ ALIN <span class="text-indigo-500">KRAUSZ</span>
-                </h1> --}}
             </div>
 
             <p class="max-w-2xl mb-10 text-xl font-light text-center text-gray-200 md:text-2xl">
@@ -286,94 +283,8 @@
         </div>
     </section>
 
-    {{-- <!-- Gallery Section -->
-    <section id="gallery" class="py-24 text-white bg-gradient-to-b from-black via-gray-900 to-black">
-        <div class="container px-8 mx-auto max-w-7xl">
-            <div class="mb-16 text-center">
-                <h2
-                    class="text-4xl font-extrabold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
-                    Galerie Media
-                </h2>
-                <div class="w-24 h-1 mx-auto mt-4 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500"></div>
-                <p class="max-w-2xl mx-auto mt-4 text-gray-300">Imagini și videoclipuri din evenimentele noastre</p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <!-- Gallery Item 1 -->
-                <div class="relative overflow-hidden group rounded-xl aspect-square">
-                    <img src="{{ asset('assets/gallery-1.jpg') }}" alt="DJ Alin Krausz la eveniment"
-                        class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                        <h3 class="text-xl font-bold">Nuntă la Castelul Bánffy</h3>
-                        <p class="text-sm text-gray-300">O seară magică alături de invitați speciali</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="relative overflow-hidden group rounded-xl aspect-square">
-                    <img src="{{ asset('assets/gallery-2.jpg') }}" alt="DJ Alin Krausz în club"
-                        class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                        <h3 class="text-xl font-bold">Club Midi - Night Session</h3>
-                        <p class="text-sm text-gray-300">Electronica vibes până în zori</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="relative overflow-hidden group rounded-xl aspect-square">
-                    <img src="{{ asset('assets/gallery-3.jpg') }}" alt="DJ Alin Krausz la festival"
-                        class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                        <h3 class="text-xl font-bold">Festival de Vară</h3>
-                        <p class="text-sm text-gray-300">O experiență muzicală sub cerul liber</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="relative overflow-hidden group rounded-xl aspect-square sm:col-span-2">
-                    <div class="absolute inset-0 z-10 flex items-center justify-center bg-black/50">
-                        <button
-                            class="flex items-center justify-center w-20 h-20 text-white transition-colors rounded-full bg-indigo-600/80 hover:bg-indigo-600">
-                            <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <img src="{{ asset('assets/gallery-video.jpg') }}" alt="DJ Alin Krausz video"
-                        class="object-cover w-full h-full">
-                </div>
-
-                <!-- Gallery Item 5 -->
-                <div class="relative overflow-hidden group rounded-xl aspect-square">
-                    <img src="{{ asset('assets/gallery-5.jpg') }}" alt="DJ Alin Krausz set"
-                        class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
-                    <div
-                        class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
-                        <h3 class="text-xl font-bold">Corporate Event</h3>
-                        <p class="text-sm text-gray-300">Lansare de produs cu atmosferă premium</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-10 text-center">
-                <a href="#"
-                    class="inline-flex items-center px-6 py-3 text-base font-medium text-white transition-all duration-300 bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700">
-                    Vezi toată galeria
-                    <svg class="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section> --}}
-
     <!-- Testimonials Section -->
+    <!-- Testimonials Section - cu înălțime adaptivă -->
     <section id="testimonials" class="py-24 text-white bg-gradient-to-b from-black to-gray-900">
         <div class="container px-8 mx-auto max-w-7xl">
             <div class="mb-16 text-center">
@@ -386,212 +297,64 @@
             </div>
 
             <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Testimonial 1 -->
-                <div class="relative">
-                    <div
-                        class="absolute inset-0 opacity-50 bg-gradient-to-r from-pink-500 to-indigo-600 rounded-2xl blur-sm">
-                    </div>
-                    <div
-                        class="relative p-8 border shadow-lg bg-gray-800/70 border-gray-700/50 rounded-xl backdrop-blur-sm">
-                        <div class="absolute text-indigo-400 select-none -top-4 left-10 text-opacity-20">
-                            <svg class="w-16 h-16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                            </svg>
+                @forelse($testimonials as $testimonial)
+                    <!-- Testimonial Card - cu înălțime adaptivă -->
+                    <div class="relative flex h-full">
+                        <div
+                            class="absolute inset-0 opacity-50 bg-gradient-to-r from-pink-500 to-indigo-600 rounded-2xl blur-sm">
                         </div>
-                        <div class="flex items-center mt-6 mb-6">
-                            <div class="flex text-yellow-400">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
+                        <div
+                            class="relative flex flex-col w-full p-8 border shadow-lg bg-gray-800/70 border-gray-700/50 rounded-xl backdrop-blur-sm">
+                            <div class="absolute text-indigo-400 select-none -top-4 left-10 text-opacity-20">
+                                <svg class="w-16 h-16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
+                                        d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                                 </svg>
                             </div>
-                        </div>
-                        <p class="relative z-10 mb-6 text-gray-300">
-                            "Alin a fost fantastic la nunta noastră! A înțeles perfect ce ne dorim și a creat o
-                            atmosferă
-                            incredibilă. Ringul de dans a fost plin toată noaptea și toți invitații ne-au întrebat cum
-                            l-am
-                            găsit. Recomand cu încredere!"
-                        </p>
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 mr-3">
-                                <div
-                                    class="flex items-center justify-center w-10 h-10 font-bold text-white bg-indigo-500 rounded-full">
-                                    A
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Andreea & Mihai</h4>
-                                <p class="text-sm text-gray-400">Nuntă, București</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Testimonial 2 -->
-                <div class="relative">
-                    <div
-                        class="absolute inset-0 opacity-50 bg-gradient-to-r from-indigo-600 to-blue-500 rounded-2xl blur-sm">
-                    </div>
-                    <div
-                        class="relative p-8 border shadow-lg bg-gray-800/70 border-gray-700/50 rounded-xl backdrop-blur-sm">
-                        <div class="absolute text-indigo-400 select-none -top-4 left-10 text-opacity-20">
-                            <svg class="w-16 h-16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                            </svg>
-                        </div>
-                        <div class="flex items-center mt-6 mb-6">
-                            <div class="flex text-yellow-400">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="relative z-10 mb-6 text-gray-300">
-                            "Am colaborat cu Alin pentru evenimentul de lansare a produsului nostru și a fost impecabil.
-                            A
-                            înțeles perfect brieful, a venit cu sugestii excelente și a creat exact atmosfera pe care o
-                            căutam. Cu siguranță vom lucra din nou împreună!"
-                        </p>
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 mr-3">
-                                <div
-                                    class="flex items-center justify-center w-10 h-10 font-bold text-white bg-blue-500 rounded-full">
-                                    AP
+                            <!-- Rating Stars -->
+                            <div class="flex items-center mt-6 mb-6">
+                                <div class="flex text-yellow-400">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        <svg class="w-5 h-5"
+                                            fill="{{ $i <= $testimonial->rating ? 'currentColor' : 'none' }}"
+                                            stroke="{{ $i <= $testimonial->rating ? 'currentColor' : 'currentColor' }}"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                    @endfor
                                 </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold">Alexandru Popescu</h4>
-                                <p class="text-sm text-gray-400">Event Manager, TechCorp</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Testimonial 3 -->
-                <div class="relative">
-                    <div
-                        class="absolute inset-0 opacity-50 bg-gradient-to-r from-purple-600 to-fuchsia-500 rounded-2xl blur-sm">
-                    </div>
-                    <div
-                        class="relative p-8 border shadow-lg bg-gray-800/70 border-gray-700/50 rounded-xl backdrop-blur-sm">
-                        <div class="absolute text-indigo-400 select-none -top-4 left-10 text-opacity-20">
-                            <svg class="w-16 h-16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path
-                                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                            </svg>
-                        </div>
-                        <div class="flex items-center mt-6 mb-6">
-                            <div class="flex text-yellow-400">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="relative z-10 mb-6 text-gray-300">
-                            "DJ Alin Krausz a fost alegerea perfectă pentru clubul nostru. Are un simț deosebit pentru a
-                            citi publicul și știe exact ce muzică să pună pentru a menține atmosfera la cote maxime.
-                            Colaborarea cu el este mereu o plăcere!"
-                        </p>
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 mr-3">
-                                <div
-                                    class="flex items-center justify-center w-10 h-10 font-bold text-white bg-purple-500 rounded-full">
-                                    EI
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Elena Ionescu</h4>
-                                <p class="text-sm text-gray-400">Manager, Pulse Club</p>
+                            <!-- Testimonial Content - makes card expand -->
+                            <p class="relative z-10 flex-grow mb-6 text-gray-300">
+                                "{{ $testimonial->content }}"
+                            </p>
+
+                            <!-- Author Info - at bottom -->
+                            <div class="pt-4 mt-auto border-t border-gray-700">
+                                <h4 class="font-bold">{{ $testimonial->name }}</h4>
+                                <p class="text-sm text-gray-400">
+                                    @if ($testimonial->position && $testimonial->company)
+                                        {{ $testimonial->position }}, {{ $testimonial->company }}
+                                    @elseif($testimonial->position)
+                                        {{ $testimonial->position }}
+                                    @elseif($testimonial->company)
+                                        {{ $testimonial->company }}
+                                    @endif
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <!-- No testimonials message -->
+                    <div class="py-10 text-center col-span-full">
+                        <p class="text-lg text-gray-400">Nu există testimoniale disponibile în acest moment.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
