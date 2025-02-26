@@ -109,31 +109,48 @@
                     </div>
                     <div
                         class="relative p-8 border shadow-lg bg-gray-800/80 border-gray-700/50 rounded-xl backdrop-blur-sm">
-                        <form>
+
+                        @if ($success)
+                            <div
+                                class="p-4 mb-6 text-center text-green-400 border border-green-500 rounded-lg bg-green-500/10">
+                                <p>Mesajul tău a fost trimis cu succes! Îți mulțumesc și te voi contacta în curând.</p>
+                            </div>
+                        @endif
+
+                        <form wire:submit="submit">
                             <div class="mb-6">
                                 <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Nume</label>
-                                <input type="text" id="name" name="name"
+                                <input type="text" id="name" wire:model="name"
                                     class="w-full px-4 py-3 text-white transition-colors border border-gray-600 rounded-lg bg-gray-700/50 focus:ring-indigo-500 focus:border-indigo-500">
+                                @error('name')
+                                    <span class="mt-1 text-sm text-red-400">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="mb-6">
                                 <label for="email"
                                     class="block mb-2 text-sm font-medium text-gray-300">Email</label>
-                                <input type="email" id="email" name="email"
+                                <input type="email" id="email" wire:model="email"
                                     class="w-full px-4 py-3 text-white transition-colors border border-gray-600 rounded-lg bg-gray-700/50 focus:ring-indigo-500 focus:border-indigo-500">
+                                @error('email')
+                                    <span class="mt-1 text-sm text-red-400">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="mb-6">
                                 <label for="phone"
                                     class="block mb-2 text-sm font-medium text-gray-300">Telefon</label>
-                                <input type="tel" id="phone" name="phone"
+                                <input type="tel" id="phone" wire:model="phone"
                                     class="w-full px-4 py-3 text-white transition-colors border border-gray-600 rounded-lg bg-gray-700/50 focus:ring-indigo-500 focus:border-indigo-500">
+                                @error('phone')
+                                    <span class="mt-1 text-sm text-red-400">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="mb-6">
                                 <label for="event_type" class="block mb-2 text-sm font-medium text-gray-300">Tip
                                     Eveniment</label>
-                                <select id="event_type" name="event_type"
+                                <select id="event_type" wire:model="event_type"
                                     class="w-full px-4 py-3 text-white transition-colors border border-gray-600 rounded-lg bg-gray-700/50 focus:ring-indigo-500 focus:border-indigo-500">
                                     <option value="" selected disabled>Selectează tipul evenimentului
                                     </option>
@@ -143,13 +160,19 @@
                                     <option value="private">Eveniment Privat</option>
                                     <option value="other">Altul</option>
                                 </select>
+                                @error('event_type')
+                                    <span class="mt-1 text-sm text-red-400">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="mb-6">
                                 <label for="message"
                                     class="block mb-2 text-sm font-medium text-gray-300">Mesaj</label>
-                                <textarea id="message" name="message" rows="4"
+                                <textarea id="message" wire:model="message" rows="4"
                                     class="w-full px-4 py-3 text-white transition-colors border border-gray-600 rounded-lg bg-gray-700/50 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                                @error('message')
+                                    <span class="mt-1 text-sm text-red-400">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <button type="submit"
