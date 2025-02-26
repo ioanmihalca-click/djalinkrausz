@@ -5,18 +5,14 @@
 
     RewriteEngine On
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    # Redirect from http:// and https://www to https://djalinkrausz.ro (non-www)
+    RewriteCond %{HTTP_HOST} ^(www\.)?djalinkrausz\.ro [NC,OR]
+    RewriteCond %{HTTP_HOST} ^djalinkrausz\.ro [NC]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://djalinkrausz.ro/$1 [L,R=301]
 
-    # Handle X-XSRF-Token Header
-    RewriteCond %{HTTP:x-xsrf-token} .
-    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
-
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^www\.djalinkrausz\.ro [NC]
+    RewriteRule ^(.*)$ https://djalinkrausz.ro/$1 [L,R=301]
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
