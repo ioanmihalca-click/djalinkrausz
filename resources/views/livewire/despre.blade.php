@@ -133,51 +133,51 @@
     </section>
 
     <!-- Experience Numbers -->
-    <section class="py-20 text-white bg-gradient-to-b from-black via-gray-900 to-black">
-        <div class="container px-8 mx-auto max-w-7xl">
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-                <div class="relative p-8 text-center group">
+    <section class="py-12 text-white md:py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+        <div class="container px-4 mx-auto md:px-8 max-w-7xl">
+            <div class="grid grid-cols-2 gap-4 md:gap-8 md:grid-cols-4">
+                <div class="relative p-4 text-center md:p-8 group">
                     <div
                         class="absolute inset-0 transition-opacity duration-300 opacity-25 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl blur-sm group-hover:opacity-40">
                     </div>
                     <div class="relative">
                         <div
-                            class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                            class="text-3xl font-bold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
                             10+</div>
-                        <div class="mt-2 text-gray-300">Ani Experiență</div>
+                        <div class="mt-2 text-sm text-gray-300 md:text-base">Ani Experiență</div>
                     </div>
                 </div>
-                <div class="relative p-8 text-center group">
+                <div class="relative p-4 text-center md:p-8 group">
                     <div
                         class="absolute inset-0 transition-opacity duration-300 opacity-25 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl blur-sm group-hover:opacity-40">
                     </div>
                     <div class="relative">
                         <div
-                            class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
+                            class="text-3xl font-bold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
                             1000+</div>
-                        <div class="mt-2 text-gray-300">Evenimente</div>
+                        <div class="mt-2 text-sm text-gray-300 md:text-base">Evenimente</div>
                     </div>
                 </div>
-                <div class="relative p-8 text-center group">
+                <div class="relative p-4 text-center md:p-8 group">
                     <div
                         class="absolute inset-0 transition-opacity duration-300 opacity-25 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl blur-sm group-hover:opacity-40">
                     </div>
                     <div class="relative">
                         <div
-                            class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                            class="text-3xl font-bold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
                             100+</div>
-                        <div class="mt-2 text-gray-300">Colaborări</div>
+                        <div class="mt-2 text-sm text-gray-300 md:text-base">Colaborări</div>
                     </div>
                 </div>
-                <div class="relative p-8 text-center group">
+                <div class="relative p-4 text-center md:p-8 group">
                     <div
                         class="absolute inset-0 transition-opacity duration-300 opacity-25 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl blur-sm group-hover:opacity-40">
                     </div>
                     <div class="relative">
                         <div
-                            class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
+                            class="text-3xl font-bold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
                             500+</div>
-                        <div class="mt-2 text-gray-300">Clienți Mulțumiți</div>
+                        <div class="mt-2 text-sm text-gray-300 md:text-base">Clienți Mulțumiți</div>
                     </div>
                 </div>
             </div>
