@@ -113,6 +113,17 @@
                         a crea experiențe muzicale memorabile care rămân în inimile publicului.
                     </p>
 
+                    <!-- Link către pagina Despre  -->
+                    <a href="{{ url('/despre') }}" wire:navigate
+                        class="inline-flex items-center mb-8 text-gray-300 transition-all duration-300 hover:text-indigo-400 group">
+                        <span>Află mai multe despre mine</span>
+                        <svg class="w-5 h-5 ml-2 transition-transform duration-300 transform group-hover:translate-x-2"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+
                     <div class="flex flex-wrap gap-4 mb-8">
                         <div class="flex items-center p-3 rounded-lg bg-gray-800/60">
                             <div class="mr-3 text-indigo-400">
@@ -183,18 +194,6 @@
                             </svg>
                         </a>
                     </div>
-
-                    <!-- Link către pagina Despre - modificat din buton în text link -->
-                    <a href="{{ url('/despre') }}" wire:navigate
-                        class="inline-flex items-center text-gray-300 transition-all duration-300 hover:text-indigo-400 group">
-                        <span>Află mai multe despre mine</span>
-                        <svg class="w-5 h-5 ml-2 transition-transform duration-300 transform group-hover:translate-x-2"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                    </a>
 
                     <!-- Contact Links -->
                     <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
