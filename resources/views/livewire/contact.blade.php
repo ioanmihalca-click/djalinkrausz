@@ -5,7 +5,7 @@
             <div>
                 <div class="relative inline-block mb-6">
                     <h2
-                        class="text-4xl font-extrabold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+                        class="text-3xl font-extrabold text-transparent md:text-5xl bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
                         Contactează-mă
                     </h2>
                     <div class="w-32 h-1 mt-4 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500"></div>
