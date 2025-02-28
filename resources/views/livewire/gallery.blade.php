@@ -46,26 +46,22 @@
                 selectedImage: null,
                 images: [],
                 currentIndex: 0,
-                loading: true,
             
                 init() {
                     this.images = Array.from(document.querySelectorAll('[data-gallery-image]')).map(img => img.getAttribute('src'));
                 },
             
                 next() {
-                    this.loading = true;
                     this.currentIndex = (this.currentIndex + 1) % this.images.length;
                     this.selectedImage = this.images[this.currentIndex];
                 },
             
                 prev() {
-                    this.loading = true;
                     this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
                     this.selectedImage = this.images[this.currentIndex];
                 },
             
                 setImage(url) {
-                    this.loading = true;
                     this.selectedImage = url;
                     this.currentIndex = this.images.indexOf(url);
                 }
@@ -106,7 +102,8 @@
                     <!-- Close button -->
                     <button @click="selectedImage = null"
                         class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -130,12 +127,8 @@
                         </svg>
                     </button>
 
-                    <!-- Image container -->
-                    <div class="relative flex items-center justify-center w-full h-full">
-                        <img :src="selectedImage"
-                            class="max-w-full max-h-[80vh] object-contain transition-opacity duration-300"
-                            :class="{ 'opacity-0': loading }" @load="loading = false" alt="Imagine mărită">
-                    </div>
+                    <!-- Image -->
+                    <img :src="selectedImage" class="max-w-full max-h-[80vh] object-contain" alt="Imagine mărită">
                 </div>
             </div>
 
@@ -163,12 +156,13 @@
                         </div>
                     @endforelse
                 </div>
-                <div class="flex justify-center mt-16">
-                    <a href="{{ url('/contact') }}" wire:navigate
-                        class="px-8 py-4 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-105">
-                        Contactează-mă
-                    </a>
-                </div>
+            </div>
+
+            <div class="flex justify-center mt-16">
+                <a href="{{ url('/contact') }}" wire:navigate
+                    class="px-8 py-4 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-105">
+                    Contactează-mă
+                </a>
             </div>
         </div>
     </section>
