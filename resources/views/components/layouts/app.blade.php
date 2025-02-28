@@ -22,6 +22,12 @@
     <meta property="og:image" content="{{ asset('assets/og-image.jpg') }}">
     <meta property="og:url" content="{{ url('/') }}">
 
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 
@@ -104,7 +110,7 @@
         </div>
 
         <!-- Mobile menu, show/hide based on menu state -->
-        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300"
+        <div x-cloak x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 transform -translate-y-2"
             x-transition:enter-end="opacity-100 transform translate-y-0"
             x-transition:leave="transition ease-in duration-200"
