@@ -59,6 +59,19 @@
                 <div class="w-24 h-1 mx-auto mt-4 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500"></div>
             </div>
 
+            <!-- Added Image -->
+            <div class="relative mb-12 group">
+                <div
+                    class="absolute transition-all duration-300 -inset-1 bg-gradient-to-r from-green-500 via-indigo-500 to-purple-600 rounded-xl opacity-70 blur-md group-hover:opacity-100">
+                </div>
+                <div class="relative overflow-hidden rounded-xl">
+                    <img src="{{ asset('assets/djalinkrausz.jpg') }}" alt="DJ Alin Krausz"
+                        class="relative z-10 w-full h-auto transition-all duration-500 transform shadow-2xl rounded-xl group-hover:scale-105">
+                    <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                    </div>
+                </div>
+            </div>
+
             <div class="space-y-8 text-lg leading-relaxed text-gray-300">
                 <p>
                     Alin Krausz este un DJ pasionat, talentat, profesionist și foarte cunoscut în peisajul muzical din
