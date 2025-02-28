@@ -42,11 +42,36 @@
             </div>
 
             <!-- Photo Gallery -->
-            <div x-data="{ selectedImage: null }" x-cloak class="{{ $activeTab === 'photo' ? 'block' : 'hidden' }}">
+            <div x-data="{
+                selectedImage: null,
+                images: [],
+                currentIndex: 0,
+            
+                init() {
+                    this.images = Array.from(document.querySelectorAll('[data-gallery-image]')).map(img => img.getAttribute('src'));
+                },
+            
+                next() {
+                    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+                    this.selectedImage = this.images[this.currentIndex];
+                },
+            
+                prev() {
+                    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+                    this.selectedImage = this.images[this.currentIndex];
+                },
+            
+                setImage(url) {
+                    this.selectedImage = url;
+                    this.currentIndex = this.images.indexOf(url);
+                }
+            }" x-cloak class="{{ $activeTab === 'photo' ? 'block' : 'hidden' }}"
+                @keydown.right.window="if(selectedImage) next()" @keydown.left.window="if(selectedImage) prev()">
+
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     @forelse ($photos as $photo)
                         <div class="relative overflow-hidden group rounded-xl aspect-square">
-                            <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}"
+                            <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}" data-gallery-image
                                 class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
                             <div
                                 class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
@@ -55,8 +80,9 @@
                                     <p class="text-sm text-gray-300">{{ $photo->description }}</p>
                                 @endif
                             </div>
-                            <button @click="selectedImage = '{{ $photo->image_url }}'"
-                                class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none"></button>
+                            <button @click="setImage('{{ $photo->image_url }}')"
+                                class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none">
+                            </button>
                         </div>
                     @empty
                         <div class="py-10 text-center col-span-full">
@@ -65,13 +91,15 @@
                     @endforelse
                 </div>
 
-                <!-- Lightbox for image preview -->
+                <!-- Lightbox with navigation -->
                 <div x-show="selectedImage" @click.away="selectedImage = null"
                     @keydown.escape.window="selectedImage = null"
                     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
                     x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
                     x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+
+                    <!-- Close button -->
                     <button @click="selectedImage = null"
                         class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -80,6 +108,26 @@
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
+
+                    <!-- Previous button -->
+                    <button @click="prev()"
+                        class="absolute p-2 text-white transition-colors duration-300 rounded-full left-4 hover:bg-white/10 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Next button -->
+                    <button @click="next()"
+                        class="absolute p-2 text-white transition-colors duration-300 rounded-full right-4 hover:bg-white/10 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Image -->
                     <img :src="selectedImage" class="max-w-full max-h-[80vh] object-contain" alt="Imagine mărită">
                 </div>
             </div>
