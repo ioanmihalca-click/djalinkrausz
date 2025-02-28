@@ -46,22 +46,26 @@
                 selectedImage: null,
                 images: [],
                 currentIndex: 0,
+                loading: true,
             
                 init() {
                     this.images = Array.from(document.querySelectorAll('[data-gallery-image]')).map(img => img.getAttribute('src'));
                 },
             
                 next() {
+                    this.loading = true;
                     this.currentIndex = (this.currentIndex + 1) % this.images.length;
                     this.selectedImage = this.images[this.currentIndex];
                 },
             
                 prev() {
+                    this.loading = true;
                     this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
                     this.selectedImage = this.images[this.currentIndex];
                 },
             
                 setImage(url) {
+                    this.loading = true;
                     this.selectedImage = url;
                     this.currentIndex = this.images.indexOf(url);
                 }
@@ -95,75 +99,116 @@
                 <div x-show="selectedImage" @click.away="selectedImage = null"
                     @keydown.escape.window="selectedImage = null"
                     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
-                    x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 scale-90"art="opacity-100 scale-100"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-200"le-90">
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
 
                     <!-- Close button -->
-                    <button @click="selectedImage = null"
-                        class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
+                    <button @click="selectedImage = null"ine-none">
+                        class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none">"currentColor"
+                        viewBox="0 0 24 24"
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24"lns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg">path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12"></path>
+                            d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
 
                     <!-- Previous button -->
-                    <button @click="prev()"
-                        class="absolute p-2 text-white transition-colors duration-300 rounded-full left-4 hover:bg-white/10 focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button @click="prev()"lute p-2 text-white transition-colors duration-300 rounded-full left-4
+                        hover:bg-white/10 focus:outline-none">
+                        class="absolute p-2 text-white transition-colors duration-300 rounded-full left-4 hover:bg-white/10 focus:outline-none">lass="w-8
+                        h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">path
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
                             </path>
                         </svg>
                     </button>
 
                     <!-- Next button -->
-                    <button @click="next()"
-                        class="absolute p-2 text-white transition-colors duration-300 rounded-full right-4 hover:bg-white/10 focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button @click="next()"lute p-2 text-white transition-colors duration-300 rounded-full right-4
+                        hover:bg-white/10 focus:outline-none">
+                        class="absolute p-2 text-white transition-colors duration-300 rounded-full right-4 hover:bg-white/10 focus:outline-none">lass="w-8
+                        h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">path
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                             </path>
                         </svg>
                     </button>
-
                     <!-- Image -->
-                    <img :src="selectedImage" class="max-w-full max-h-[80vh] object-contain" alt="Imagine mărită">
+                    <!-- Image -->
+                    <div class="relative flex items-center justify-center w-full h-full">
+                        <img :src="selectedImage" class="max-w-full max-h-[80vh] object-contain"
+                            alt="Imagine mărită">"selectedImage"
+                    </div>ransition-opacity duration-300"
                 </div>
-            </div>
-
-            <!-- Video Gallery -->
-            <div class="{{ $activeTab === 'video' ? 'block' : 'hidden' }}">
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-                    @forelse ($videos as $video)
-                        <div class="overflow-hidden rounded-xl bg-gray-800/30 backdrop-blur-sm">
-                            <div class="relative aspect-video">
-                                <iframe class="absolute inset-0 w-full h-full rounded-t-xl"
-                                    src="{{ $video->youtube_url }}" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold">{{ $video->title }}</h3>
+                se"
+                <!-- Video Gallery -->
+                <div class="{{ $activeTab === 'video' ? 'block' : 'hidden' }}">
+                    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                        @forelse ($videos as $video)
+                            <div class="overflow-hidden rounded-xl bg-gray-800/30 backdrop-blur-sm">
+                                <div class="relative aspect-video">
+                                    <iframe class="absolute inset-0 w-full h-full rounded-t-xl"
+                                        src="{{ $video->youtube_url }}" frameborder="0"deo' ? 'block' : 'hidden' }}">
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                </div>
+                                <div class="p-4">="relative aspect-video">
+                                    <h3 class="text-xl font-bold">{{ $video->title }}</h3>frame
+                                    class="absolute inset-0 w-full h-full rounded-t-xl"
+                                    @if ($video->description)
+                                        src="{{ $video->youtube_url }}" frameborder="0"
+                                        <p class="mt-2 text-sm text-gray-300">{{ $video->description }}</p>
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    @endif
+                                </div>
+                            </div>iv class="p-4">
+                        @empty <h3 class="text-xl font-bold">{{ $video->title }}</h3>
+                            <div class="py-10 text-center col-span-full">
                                 @if ($video->description)
+                                    <p class="text-xl text-gray-400">Nu există videoclipuri disponibile în acest
+                                        moment.</p>
                                     <p class="mt-2 text-sm text-gray-300">{{ $video->description }}</p>
-                                @endif
                             </div>
-                        </div>
-                    @empty
-                        <div class="py-10 text-center col-span-full">
-                            <p class="text-xl text-gray-400">Nu există videoclipuri disponibile în acest moment.</p>
-                        </div>
-                    @endforelse
+                        @endif
+                        @endforelse
+                    </div>
+                    </div>
+="py-10 text-center col-span-full">
+                    <div class="flex justify-center mt-16">
+                        <p class="text-xl text-gray-400">Nu există videoclipuri disponibile în acest moment.</p>
+                        <a href="{{ url('/contact') }}" wire:navigate </div>
+                            class="px-8 py-4 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-105">
+                            @endforelse
+                            Contactează-mă
+                    </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="flex justify-center mt-16">
-                <a href="{{ url('/contact') }}" wire:navigate
-                    class="px-8 py-4 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-105">
-                    Contactează-mă
-                </a>
-            </div>
+
+
+
         </div>
     </section>
+</div>
+<div class="flex justify-center mt-16">
+    <a href="{{ url('/contact') }}" wire:navigate
+        class="px-8 py-4 font-bold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 hover:shadow-lg hover:shadow-indigo-500/30 hover:scale-105">
+        Contactează-mă
+    </a>
+</div>
+</div>
+</section>
 </div>
