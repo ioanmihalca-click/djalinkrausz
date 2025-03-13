@@ -68,7 +68,7 @@
                 <div id="lightbox"
                     class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-black/90 backdrop-blur-sm">
                     <button id="lightbox-close"
-                        class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none">
+                        class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none z-60">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -76,14 +76,14 @@
                         </svg>
                     </button>
                     <button id="lightbox-prev"
-                        class="absolute p-2 text-white transition-colors duration-300 rounded-full left-4 hover:bg-white/10 focus:outline-none">
+                        class="absolute p-2 text-white transition-colors duration-300 rounded-full left-4 hover:bg-white/10 focus:outline-none z-60">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
                             </path>
                         </svg>
                     </button>
                     <button id="lightbox-next"
-                        class="absolute p-2 text-white transition-colors duration-300 rounded-full right-4 hover:bg-white/10 focus:outline-none">
+                        class="absolute p-2 text-white transition-colors duration-300 rounded-full right-4 hover:bg-white/10 focus:outline-none z-60">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
@@ -109,7 +109,7 @@
                                     allowfullscreen></iframe>
                             </div>
                             <div class="p-4">
-                                <h3 class="text-xl font-bold">{{ $photo->title }}</h3>
+                                <h3 class="text-xl font-bold">{{ $video->title }}</h3>
                                 @if ($video->description)
                                     <p class="mt-2 text-sm text-gray-300">{{ $video->description }}</p>
                                 @endif
@@ -148,6 +148,9 @@
             return;
         }
 
+        // Debug pentru vizibilitatea săgeților
+        console.log('Săgeți inițiale:', prevBtn.style.display, nextBtn.style.display);
+
         // Delegare eveniment click pe butoane
         galleryContainer.addEventListener('click', (e) => {
             const thumb = e.target.closest('.gallery-thumb');
@@ -157,6 +160,9 @@
                 showImage(thumb);
                 lightbox.classList.remove('hidden');
                 lightbox.classList.add('flex');
+                // Asigurăm vizibilitatea săgeților la deschidere
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
             }
         });
 
@@ -203,6 +209,8 @@
 
         lightbox.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
+            // Debug pentru swipe
+            console.log('Swipe început:', touchStartX);
         });
 
         lightbox.addEventListener('touchend', (e) => {
@@ -212,7 +220,7 @@
 
         function handleSwipe() {
             const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
-            const swipeThreshold = 50; // Distanța minimă pentru a considera un swipe
+            const swipeThreshold = 50;
             if (touchStartX - touchEndX > swipeThreshold) {
                 // Swipe la stânga -> imaginea următoare
                 currentIndex = (currentIndex + 1) % thumbs.length;
@@ -222,6 +230,8 @@
                 currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
                 showImage(thumbs[currentIndex]);
             }
+            // Debug pentru a verifica vizibilitatea săgeților după swipe
+            console.log('Săgeți după swipe:', prevBtn.style.display, nextBtn.style.display);
         }
 
         // Funcție pentru afișarea imaginii
@@ -232,7 +242,7 @@
                 lightboxImage.src = thumb.dataset.full;
                 lightboxImage.classList.remove('opacity-0');
                 lightboxImage.classList.add('opacity-100');
-            }, 150); // Întârziere pentru tranziție
+            }, 150);
         }
     });
 </script>

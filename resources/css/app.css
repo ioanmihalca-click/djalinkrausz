@@ -2,30 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Stiluri de bază pentru săgeți */
+#lightbox-prev,
+#lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    color: white;
+    opacity: 1; /* Asigurăm vizibilitate implicită */
+    z-index: 60; /* Ne asigurăm că sunt deasupra imaginii */
+    transition: background 0.3s ease; /* Tranziție doar pentru fundal */
+}
+
+#lightbox-prev {
+    left: 1rem;
+}
+
+#lightbox-next {
+    right: 1rem;
+}
+
+#lightbox-prev:hover,
+#lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustări specifice pentru mobil */
 @media (max-width: 640px) {
-    /* Ajustăm pentru mobil */
     #lightbox-prev,
     #lightbox-next {
-        top: 50%; /* Centram vertical săgețile */
-        transform: translateY(-50%);
-        padding: 1rem; /* Mărim zona de click */
-        background: rgba(
-            0,
-            0,
-            0,
-            0.5
-        ); /* Fundal semi-transparent pentru vizibilitate */
+        padding: 1rem; /* Zonă mai mare de click */
+        background: rgba(0, 0, 0, 0.5); /* Fundal vizibil implicit */
         border-radius: 50%;
-    }
-    #lightbox-prev {
-        left: 0.5rem; /* Apropiem de margine */
-    }
-    #lightbox-next {
-        right: 0.5rem; /* Apropiem de margine */
+        display: flex; /* Asigurăm vizibilitate */
+        align-items: center;
+        justify-content: center;
     }
     #lightbox-prev svg,
     #lightbox-next svg {
-        width: 1.5rem; /* Mici ajustări pentru vizibilitate */
+        width: 1.5rem;
         height: 1.5rem;
     }
 }
