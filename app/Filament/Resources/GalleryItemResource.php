@@ -36,12 +36,12 @@ class GalleryItemResource extends Resource
                             ->label('Titlu')
                             ->required()
                             ->maxLength(255),
-                            
+
                         Forms\Components\Textarea::make('description')
                             ->label('Descriere')
                             ->maxLength(500)
                             ->columnSpanFull(),
-                            
+
                         Forms\Components\Select::make('type')
                             ->label('Tip')
                             ->options([
@@ -51,45 +51,44 @@ class GalleryItemResource extends Resource
                             ->default('photo')
                             ->required()
                             ->live()
-                            ->afterStateUpdated(fn (Forms\Set $set) => $set('youtube_url', null)),
-                            
+                            ->afterStateUpdated(fn(Forms\Set $set) => $set('youtube_url', null)),
+
                         Forms\Components\Toggle::make('active')
                             ->label('Activ')
                             ->default(true),
-                            
+
                         Forms\Components\TextInput::make('order')
                             ->label('Ordine de afișare')
                             ->numeric()
                             ->default(0),
                     ])->columns(2),
-                    
+
                 Forms\Components\Section::make('Upload Fișier')
                     ->schema([
                         Forms\Components\FileUpload::make('image')
                             ->label('Imagine')
                             ->image()
                             ->imageResizeMode('cover')
-                            ->imageCropAspectRatio('1:1')
                             ->directory('livewire-tmp') // Folosim directorul livewire-tmp pentru a evita probleme
                             ->disk('local') // Folosim local pentru a evita probleme cu vizibilitatea
                             ->visibility('private')
                             ->maxSize(5120) // 5MB
-                            ->hidden(fn (Forms\Get $get) => $get('type') === 'video')
+                            ->hidden(fn(Forms\Get $get) => $get('type') === 'video')
                             ->afterStateUpdated(function (Forms\Set $set, $state) {
                                 if (!$state) return;
-                                
+
                                 if ($state instanceof TemporaryUploadedFile || (is_array($state) && !empty($state))) {
                                     try {
                                         $file = is_array($state) ? $state[0] : $state;
-                                        
+
                                         // Așteptăm până când fișierul este complet încărcat
                                         if (!$file->isPreviewable()) {
                                             return;
                                         }
-                                        
+
                                         // Folosește serviciul pentru a obține URL-ul imaginii
                                         $imageUrl = CloudinaryService::getImageUrl($file);
-                                        
+
                                         if (!empty($imageUrl)) {
                                             $set('image_url', $imageUrl);
                                         }
@@ -98,19 +97,19 @@ class GalleryItemResource extends Resource
                                     }
                                 }
                             }),
-                            
+
                         Forms\Components\TextInput::make('youtube_url')
                             ->label('URL YouTube')
                             ->url()
                             ->maxLength(255)
-                            ->hidden(fn (Forms\Get $get) => $get('type') === 'photo')
+                            ->hidden(fn(Forms\Get $get) => $get('type') === 'photo')
                             ->helperText('Introduceți URL-ul unui videoclip de pe YouTube (ex: https://www.youtube.com/watch?v=XXXXXXXXXXX)'),
-                            
+
                         Forms\Components\TextInput::make('image_url')
                             ->label('URL Imagine')
                             ->disabled()
                             ->dehydrated(true)
-                            ->hidden(fn (Forms\Get $get) => $get('type') === 'video' || !$get('image_url')),
+                            ->hidden(fn(Forms\Get $get) => $get('type') === 'video' || !$get('image_url')),
                     ]),
             ]);
     }
@@ -123,37 +122,38 @@ class GalleryItemResource extends Resource
                     ->label('Imagine')
                     ->visibility('public')
                     ->square()
-                    ->defaultImageUrl(fn (GalleryItem $record) => 
-                        $record->type === 'video' 
-                            ? 'https://placehold.co/600x600/252f3f/ffffff?text=YouTube+Video' 
+                    ->defaultImageUrl(
+                        fn(GalleryItem $record) =>
+                        $record->type === 'video'
+                            ? 'https://placehold.co/600x600/252f3f/ffffff?text=YouTube+Video'
                             : null
                     ),
-                    
+
                 Tables\Columns\TextColumn::make('title')
                     ->label('Titlu')
                     ->searchable(),
-                    
+
                 Tables\Columns\TextColumn::make('type')
                     ->label('Tip')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         'photo' => 'success',
                         'video' => 'danger',
                         default => 'gray',
                     })
-                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                    ->formatStateUsing(fn(string $state): string => match ($state) {
                         'photo' => 'Fotografie',
                         'video' => 'Video',
                         default => $state,
                     }),
-                    
+
                 Tables\Columns\ToggleColumn::make('active')
                     ->label('Activ'),
-                    
+
                 Tables\Columns\TextColumn::make('order')
                     ->label('Ordine')
                     ->sortable(),
-                    
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Creat la')
                     ->dateTime('d.m.Y H:i')
@@ -167,7 +167,7 @@ class GalleryItemResource extends Resource
                         'photo' => 'Fotografie',
                         'video' => 'Video'
                     ]),
-                
+
                 Tables\Filters\TernaryFilter::make('active')
                     ->label('Activ'),
             ])

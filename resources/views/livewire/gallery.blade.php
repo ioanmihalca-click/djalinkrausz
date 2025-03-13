@@ -1,16 +1,12 @@
 <div>
-    <!-- Header Section -->
+    <!-- Header Section (rămâne neschimbat) -->
     <section class="relative w-full min-h-[40vh] bg-gradient-to-b from-black via-gray-900 to-black flex items-center">
         <div class="absolute inset-0 z-0 bg-black/50"></div>
-
-        <!-- Background Pattern -->
         <div class="absolute inset-0 z-0 opacity-20">
             <div
                 class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(120,81,255,0.2)_0,_rgba(0,0,0,0)_50%)]">
             </div>
         </div>
-
-        <!-- Content -->
         <div class="container relative z-10 px-8 pt-32 pb-16 mx-auto max-w-7xl">
             <div class="text-center">
                 <h1
@@ -42,36 +38,11 @@
             </div>
 
             <!-- Photo Gallery -->
-            <div x-data="{
-                selectedImage: null,
-                images: [],
-                currentIndex: 0,
-            
-                init() {
-                    this.images = Array.from(document.querySelectorAll('[data-gallery-image]')).map(img => img.getAttribute('src'));
-                },
-            
-                next() {
-                    this.currentIndex = (this.currentIndex + 1) % this.images.length;
-                    this.selectedImage = this.images[this.currentIndex];
-                },
-            
-                prev() {
-                    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-                    this.selectedImage = this.images[this.currentIndex];
-                },
-            
-                setImage(url) {
-                    this.selectedImage = url;
-                    this.currentIndex = this.images.indexOf(url);
-                }
-            }" x-cloak class="{{ $activeTab === 'photo' ? 'block' : 'hidden' }}"
-                @keydown.right.window="if(selectedImage) next()" @keydown.left.window="if(selectedImage) prev()">
-
+            <div class="{{ $activeTab === 'photo' ? 'block' : 'hidden' }}" id="photo-gallery">
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     @forelse ($photos as $photo)
                         <div class="relative overflow-hidden group rounded-xl aspect-square">
-                            <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}" data-gallery-image
+                            <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}"
                                 class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110">
                             <div
                                 class="absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent group-hover:opacity-100">
@@ -80,8 +51,10 @@
                                     <p class="text-sm text-gray-300">{{ $photo->description }}</p>
                                 @endif
                             </div>
-                            <button @click="setImage('{{ $photo->image_url }}')"
-                                class="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none">
+                            <button
+                                class="absolute inset-0 w-full h-full gallery-thumb cursor-zoom-in focus:outline-none"
+                                data-full="{{ $photo->image_url }}" data-title="{{ $photo->title }}"
+                                data-description="{{ $photo->description ?? '' }}">
                             </button>
                         </div>
                     @empty
@@ -91,16 +64,10 @@
                     @endforelse
                 </div>
 
-                <!-- Lightbox with navigation -->
-                <div x-show="selectedImage" @click.away="selectedImage = null"
-                    @keydown.escape.window="selectedImage = null"
-                    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-                    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
-                    x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
-                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-
-                    <!-- Close button -->
-                    <button @click="selectedImage = null"
+                <!-- Lightbox -->
+                <div id="lightbox"
+                    class="fixed inset-0 z-50 items-center justify-center hidden p-4 bg-black/90 backdrop-blur-sm">
+                    <button id="lightbox-close"
                         class="absolute text-white top-4 right-4 hover:text-indigo-400 focus:outline-none">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -108,31 +75,29 @@
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-
-                    <!-- Previous button -->
-                    <button @click="prev()"
+                    <button id="lightbox-prev"
                         class="absolute p-2 text-white transition-colors duration-300 rounded-full left-4 hover:bg-white/10 focus:outline-none">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
                             </path>
                         </svg>
                     </button>
-
-                    <!-- Next button -->
-                    <button @click="next()"
+                    <button id="lightbox-next"
                         class="absolute p-2 text-white transition-colors duration-300 rounded-full right-4 hover:bg-white/10 focus:outline-none">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
                         </svg>
                     </button>
-
-                    <!-- Image -->
-                    <img :src="selectedImage" class="max-w-full max-h-[80vh] object-contain" alt="Imagine mărită">
+                    <div id="lightbox-content" class="relative max-w-full max-h-[80vh] overflow-hidden">
+                        <img id="lightbox-image"
+                            class="max-w-full max-h-[80vh] object-contain transition-opacity duration-300 ease-in-out"
+                            alt="Imagine mărită">
+                    </div>
                 </div>
             </div>
 
-            <!-- Video Gallery -->
+            <!-- Video Gallery (rămâne neschimbat) -->
             <div class="{{ $activeTab === 'video' ? 'block' : 'hidden' }}">
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                     @forelse ($videos as $video)
@@ -144,7 +109,7 @@
                                     allowfullscreen></iframe>
                             </div>
                             <div class="p-4">
-                                <h3 class="text-xl font-bold">{{ $video->title }}</h3>
+                                <h3 class="text-xl font-bold">{{ $photo->title }}</h3>
                                 @if ($video->description)
                                     <p class="mt-2 text-sm text-gray-300">{{ $video->description }}</p>
                                 @endif
@@ -167,3 +132,81 @@
         </div>
     </section>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Delegare evenimente pentru compatibilitate cu Livewire
+        const galleryContainer = document.getElementById('photo-gallery');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const closeBtn = document.getElementById('lightbox-close');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        let currentIndex = 0;
+
+        if (!galleryContainer) {
+            console.error('Containerul galeriei nu a fost găsit!');
+            return;
+        }
+
+        // Delegare eveniment click pe butoane
+        galleryContainer.addEventListener('click', (e) => {
+            const thumb = e.target.closest('.gallery-thumb');
+            if (thumb) {
+                const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+                currentIndex = thumbs.indexOf(thumb);
+                showImage(thumb);
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+            }
+        });
+
+        // Închide lightbox-ul
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        });
+
+        // Navigare la imaginea anterioară
+        prevBtn.addEventListener('click', () => {
+            const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+            currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+            showImage(thumbs[currentIndex]);
+        });
+
+        // Navigare la imaginea următoare
+        nextBtn.addEventListener('click', () => {
+            const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+            currentIndex = (currentIndex + 1) % thumbs.length;
+            showImage(thumbs[currentIndex]);
+        });
+
+        // Taste săgeți și Escape
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('hidden')) {
+                const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+                    showImage(thumbs[currentIndex]);
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % thumbs.length;
+                    showImage(thumbs[currentIndex]);
+                } else if (e.key === 'Escape') {
+                    lightbox.classList.add('hidden');
+                    lightbox.classList.remove('flex');
+                }
+            }
+        });
+
+        // Funcție pentru afișarea imaginii
+        function showImage(thumb) {
+            lightboxImage.classList.remove('opacity-100');
+            lightboxImage.classList.add('opacity-0');
+            setTimeout(() => {
+                lightboxImage.src = thumb.dataset.full;
+                lightboxImage.classList.remove('opacity-0');
+                lightboxImage.classList.add('opacity-100');
+            }, 150); // Întârziere pentru tranziție
+        }
+    });
+</script>
