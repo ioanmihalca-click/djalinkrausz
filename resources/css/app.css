@@ -32,7 +32,7 @@
 @media (max-width: 640px) {
     #lightbox-prev,
     #lightbox-next {
-        padding: 1rem; /* Zonă mai mare de click */
+        padding: 0.5rem; /* Zonă mai mare de click */
         background: rgba(0, 0, 0, 0.5); /* Fundal vizibil implicit */
         border-radius: 50%;
         display: flex; /* Asigurăm vizibilitate */
