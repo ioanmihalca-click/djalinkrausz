@@ -135,7 +135,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Delegare evenimente pentru compatibilitate cu Livewire
         const galleryContainer = document.getElementById('photo-gallery');
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightbox-image');
@@ -197,6 +196,33 @@
                 }
             }
         });
+
+        // Suport swipe pe mobil
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+            const swipeThreshold = 50; // Distanța minimă pentru a considera un swipe
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe la stânga -> imaginea următoare
+                currentIndex = (currentIndex + 1) % thumbs.length;
+                showImage(thumbs[currentIndex]);
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe la dreapta -> imaginea anterioară
+                currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+                showImage(thumbs[currentIndex]);
+            }
+        }
 
         // Funcție pentru afișarea imaginii
         function showImage(thumb) {

@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (max-width: 640px) {
+    /* Ajustăm pentru mobil */
+    #lightbox-prev,
+    #lightbox-next {
+        top: 50%; /* Centram vertical săgețile */
+        transform: translateY(-50%);
+        padding: 1rem; /* Mărim zona de click */
+        background: rgba(
+            0,
+            0,
+            0,
+            0.5
+        ); /* Fundal semi-transparent pentru vizibilitate */
+        border-radius: 50%;
+    }
+    #lightbox-prev {
+        left: 0.5rem; /* Apropiem de margine */
+    }
+    #lightbox-next {
+        right: 0.5rem; /* Apropiem de margine */
+    }
+    #lightbox-prev svg,
+    #lightbox-next svg {
+        width: 1.5rem; /* Mici ajustări pentru vizibilitate */
+        height: 1.5rem;
+    }
+}
