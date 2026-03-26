@@ -102,7 +102,7 @@
                         <div class="w-32 h-1 mt-4 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500"></div>
                     </div>
                     <p class="mb-6 text-lg leading-relaxed text-gray-300">
-                        Cu peste 10 ani de experiență în industria muzicală, <span
+                        Cu peste 20 ani de experiență în industria muzicală, <span
                             class="font-medium text-indigo-300">DJ Alin Krausz</span> a devenit un nume de
                         referință pentru evenimentele premium. Specializat în crearea atmosferei perfecte pentru fiecare
                         eveniment, fie că este vorba despre nunți elegante, evenimente corporative sau festivaluri

@@ -133,116 +133,119 @@
     </section>
 </div>
 
+@script
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const galleryContainer = document.getElementById('photo-gallery');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
-        const closeBtn = document.getElementById('lightbox-close');
-        const prevBtn = document.getElementById('lightbox-prev');
-        const nextBtn = document.getElementById('lightbox-next');
-        let currentIndex = 0;
+    const galleryContainer = document.getElementById('photo-gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    let currentIndex = 0;
 
-        if (!galleryContainer) {
-            console.error('Containerul galeriei nu a fost găsit!');
-            return;
+    if (!galleryContainer) {
+        return;
+    }
+
+    // Delegare eveniment click pe butoane
+    const onGalleryClick = (e) => {
+        const thumb = e.target.closest('.gallery-thumb');
+        if (thumb) {
+            const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+            currentIndex = thumbs.indexOf(thumb);
+            showImage(thumb);
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
         }
+    };
+    galleryContainer.addEventListener('click', onGalleryClick);
 
-        // Debug pentru vizibilitatea săgeților
-        console.log('Săgeți inițiale:', prevBtn.style.display, nextBtn.style.display);
+    // Închide lightbox-ul
+    const onClose = () => {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+    };
+    closeBtn.addEventListener('click', onClose);
 
-        // Delegare eveniment click pe butoane
-        galleryContainer.addEventListener('click', (e) => {
-            const thumb = e.target.closest('.gallery-thumb');
-            if (thumb) {
-                const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
-                currentIndex = thumbs.indexOf(thumb);
-                showImage(thumb);
-                lightbox.classList.remove('hidden');
-                lightbox.classList.add('flex');
-                // Asigurăm vizibilitatea săgeților la deschidere
-                prevBtn.style.display = 'flex';
-                nextBtn.style.display = 'flex';
-            }
-        });
+    // Navigare la imaginea anterioară
+    const onPrev = () => {
+        const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+        currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+        showImage(thumbs[currentIndex]);
+    };
+    prevBtn.addEventListener('click', onPrev);
 
-        // Închide lightbox-ul
-        closeBtn.addEventListener('click', () => {
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
-        });
+    // Navigare la imaginea următoare
+    const onNext = () => {
+        const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+        currentIndex = (currentIndex + 1) % thumbs.length;
+        showImage(thumbs[currentIndex]);
+    };
+    nextBtn.addEventListener('click', onNext);
 
-        // Navigare la imaginea anterioară
-        prevBtn.addEventListener('click', () => {
+    // Taste săgeți și Escape
+    const onKeydown = (e) => {
+        if (!lightbox.classList.contains('hidden')) {
             const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
-            currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
-            showImage(thumbs[currentIndex]);
-        });
-
-        // Navigare la imaginea următoare
-        nextBtn.addEventListener('click', () => {
-            const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
-            currentIndex = (currentIndex + 1) % thumbs.length;
-            showImage(thumbs[currentIndex]);
-        });
-
-        // Taste săgeți și Escape
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('hidden')) {
-                const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
-                if (e.key === 'ArrowLeft') {
-                    currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
-                    showImage(thumbs[currentIndex]);
-                } else if (e.key === 'ArrowRight') {
-                    currentIndex = (currentIndex + 1) % thumbs.length;
-                    showImage(thumbs[currentIndex]);
-                } else if (e.key === 'Escape') {
-                    lightbox.classList.add('hidden');
-                    lightbox.classList.remove('flex');
-                }
-            }
-        });
-
-        // Suport swipe pe mobil
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        lightbox.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            // Debug pentru swipe
-            console.log('Swipe început:', touchStartX);
-        });
-
-        lightbox.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
-            const swipeThreshold = 50;
-            if (touchStartX - touchEndX > swipeThreshold) {
-                // Swipe la stânga -> imaginea următoare
-                currentIndex = (currentIndex + 1) % thumbs.length;
-                showImage(thumbs[currentIndex]);
-            } else if (touchEndX - touchStartX > swipeThreshold) {
-                // Swipe la dreapta -> imaginea anterioară
+            if (e.key === 'ArrowLeft') {
                 currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
                 showImage(thumbs[currentIndex]);
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % thumbs.length;
+                showImage(thumbs[currentIndex]);
+            } else if (e.key === 'Escape') {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
             }
-            // Debug pentru a verifica vizibilitatea săgeților după swipe
-            console.log('Săgeți după swipe:', prevBtn.style.display, nextBtn.style.display);
         }
+    };
+    document.addEventListener('keydown', onKeydown);
 
-        // Funcție pentru afișarea imaginii
-        function showImage(thumb) {
-            lightboxImage.classList.remove('opacity-100');
-            lightboxImage.classList.add('opacity-0');
-            setTimeout(() => {
-                lightboxImage.src = thumb.dataset.full;
-                lightboxImage.classList.remove('opacity-0');
-                lightboxImage.classList.add('opacity-100');
-            }, 150);
+    // Suport swipe pe mobil
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const onTouchStart = (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    };
+    lightbox.addEventListener('touchstart', onTouchStart);
+
+    const onTouchEnd = (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const thumbs = Array.from(galleryContainer.querySelectorAll('.gallery-thumb'));
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+            currentIndex = (currentIndex + 1) % thumbs.length;
+            showImage(thumbs[currentIndex]);
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+            showImage(thumbs[currentIndex]);
         }
-    });
+    };
+    lightbox.addEventListener('touchend', onTouchEnd);
+
+    // Funcție pentru afișarea imaginii
+    function showImage(thumb) {
+        lightboxImage.classList.remove('opacity-100');
+        lightboxImage.classList.add('opacity-0');
+        setTimeout(() => {
+            lightboxImage.src = thumb.dataset.full;
+            lightboxImage.classList.remove('opacity-0');
+            lightboxImage.classList.add('opacity-100');
+        }, 150);
+    }
+
+    // Cleanup la demontarea componentei
+    return () => {
+        galleryContainer.removeEventListener('click', onGalleryClick);
+        closeBtn.removeEventListener('click', onClose);
+        prevBtn.removeEventListener('click', onPrev);
+        nextBtn.removeEventListener('click', onNext);
+        document.removeEventListener('keydown', onKeydown);
+        lightbox.removeEventListener('touchstart', onTouchStart);
+        lightbox.removeEventListener('touchend', onTouchEnd);
+    };
 </script>
+@endscript
